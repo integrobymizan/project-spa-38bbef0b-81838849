@@ -76,16 +76,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Studio App" },
-      { name: "description", content: "AI Studio Generated Project" },
-      { name: "author", content: "AI Studio" },
-      { property: "og:title", content: "AI Studio App" },
-      { property: "og:description", content: "AI Studio Generated Project" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { title: "Omni AI Builders — AI Automation, Voice Agents & Ads" },
+      {
+        name: "description",
+        content:
+          "Omni AI Builders sets up AI voice agents, chatbots, GoHighLevel CRM automation and paid ads for local businesses, and white-label fulfilment for agencies.",
+      },
+      { name: "theme-color", content: "#0A0F14" },
+      { property: "og:title", content: "Omni AI Builders" },
+      {
+        property: "og:description",
+        content: "AI voice agents, chatbots, GoHighLevel CRM automation & paid ads.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
