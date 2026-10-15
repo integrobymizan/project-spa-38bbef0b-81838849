@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omni AI Builders</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Omni AI Builders sets up AI voice agents, chatbots, GoHighLevel CRM automation and paid ads for local businesses, and white-label fulfilment and Knock Knock AI support for agencies.">
+<meta name="theme-color" content="#0A0F14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="home">
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="agent-bubble" id="agent-bubble" aria-hidden="true"><span class="agent-name">Omni · Website helper</span><span id="agent-text"></span></div>
+<div class="scrim" aria-hidden="true"></div>
+
+<!-- Reusable line icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-voice" viewBox="0 0 24 24"><path d="M5 3.5h3.5l2 5-2.4 1.6a11 11 0 0 0 5.8 5.8l1.6-2.4 5 2V19a2 2 0 0 1-2 2A17.5 17.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/><path class="accent" d="M15 3.5a5.5 5.5 0 0 1 5.5 5.5M15 7a2 2 0 0 1 2 2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 4.5h16v11.5H10l-6 4.5z"/><path class="accent" d="M8.5 10.2h.01M12 10.2h.01M15.5 10.2h.01"/></symbol>
+    <symbol id="i-crm" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.2"/><rect x="9.5" y="4" width="5" height="11" rx="1.2"/><rect class="accent" x="16" y="4" width="5" height="7" rx="1.2"/></symbol>
+    <symbol id="i-followup" viewBox="0 0 24 24"><path d="M3 11.5 21 3l-8.5 18-2.2-7.3z"/><path class="accent" d="m10.3 13.7 4.2-4.2"/></symbol>
+    <symbol id="i-google" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/><path class="accent" d="M8 12.5v-2M10.5 12.5v-4M13 12.5V10"/></symbol>
+    <symbol id="i-meta" viewBox="0 0 24 24"><path d="M3 9.5v5h3.5l8 5v-15l-8 5z"/><path class="accent" d="M18 8.5a5 5 0 0 1 0 7"/></symbol>
+    <symbol id="i-funnel" viewBox="0 0 24 24"><path d="M3 4h18l-7 8.5V19l-4 2v-8.5z"/><path class="accent" d="M7 7.5h10"/></symbol>
+    <symbol id="i-reviews" viewBox="0 0 24 24"><path class="accent" d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+    <symbol id="i-whitelabel" viewBox="0 0 24 24"><path d="M3 12.5V3.5h9l9 9-9 9z"/><circle class="accent" cx="8" cy="8.5" r="1.6"/></symbol>
+    <symbol id="i-door" viewBox="0 0 24 24"><path d="M5 21V4.5A1.5 1.5 0 0 1 6.5 3h7A1.5 1.5 0 0 1 15 4.5V21M3 21h14"/><circle class="accent" cx="12" cy="12.5" r="0.9"/><path class="accent" d="M18 9a4 4 0 0 1 0 6M20.5 7a7 7 0 0 1 0 10"/></symbol>
+    <symbol id="i-ads" viewBox="0 0 24 24"><circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="4.2"/><path class="accent" d="M11 13l8.5-8.5M16.5 4.5h3v3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Omni AI Builders home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Omni <span class="brand-sub">AI Builders</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#who">Who we help</a>
+      <a href="#process">Process</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-small" href="#contact">Book a call</a>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+</header>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" data-agent="core">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">AI automation · Ads · GoHighLevel</p>
+        <h1>Automate <em>whatever</em> you want.</h1>
+        <p class="lede">We build AI voice agents, chatbots, CRM automations and ad campaigns that answer every lead, follow up on autopilot and fill your calendar. For local businesses, and as white-label fulfilment for agencies.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contact">Book a free strategy call</a>
+          <a class="btn btn-ghost" href="#services">Explore services</a>
+        </div>
+        <p class="trust"><span class="trust-num">200+</span> agency owners and business owners work with us</p>
+        <a class="partner-pill" href="#knock-knock"><svg><use href="#i-door"/></svg>Official Knock Knock AI white-label support partner</a>
+      </div>
+
+      <aside class="runlog" aria-label="Sample automation log">
+        <div class="runlog-head">
+          <span class="dot" aria-hidden="true"></span>
+          <span>automations running</span>
+          <span class="runlog-tag">sample</span>
+        </div>
+        <ol class="runlog-list" id="runlog"></ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="tools" aria-label="Platforms we work with">
+    <p class="wrap tools-label">Built on the platforms you already use</p>
+    <div class="marquee">
+      <ul class="marquee-track">
+        <li>GoHighLevel</li><li>Knock Knock AI</li><li>Google Ads</li><li>Meta Ads</li><li>Instagram</li><li>WhatsApp</li><li>Facebook</li><li>Google Business Profile</li><li>Stripe</li><li>Calendly</li><li>Twilio</li><li>Zapier</li><li>Make</li><li>n8n</li><li>OpenAI</li><li>Claude</li><li>Shopify</li>
+      </ul>
+      <ul class="marquee-track" aria-hidden="true">
+        <li>GoHighLevel</li><li>Knock Knock AI</li><li>Google Ads</li><li>Meta Ads</li><li>Instagram</li><li>WhatsApp</li><li>Facebook</li><li>Google Business Profile</li><li>Stripe</li><li>Calendly</li><li>Twilio</li><li>Zapier</li><li>Make</li><li>n8n</li><li>OpenAI</li><li>Claude</li><li>Shopify</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services" data-agent="services">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>Everything you need to win, answer and keep more customers.</h2>
+        <p class="section-sub">Pick one service or let us run the whole system. Every piece connects to the same CRM, so no lead slips through.</p>
+      </header>
+
+      <div class="filters" role="group" aria-label="Filter services">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span>11</span></button>
+        <button type="button" class="chip" data-filter="ai" aria-pressed="false">AI agents <span>3</span></button>
+        <button type="button" class="chip" data-filter="growth" aria-pressed="false">Ads and funnels <span>3</span></button>
+        <button type="button" class="chip" data-filter="crm" aria-pressed="false">CRM and automation <span>2</span></button>
+        <button type="button" class="chip" data-filter="agency" aria-pressed="false">For agencies <span>3</span></button>
+      </div>
+
+      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Services">
+        <div class="carousel-stage" id="carousel-stage">
+          <div class="cards carousel-ring" id="carousel-ring">
+        <article class="card" tabindex="0" style="--i:0" data-cat="ai">
+          <div class="card-top"><svg class="card-icon"><use href="#i-voice"/></svg><span class="card-cat">AI agents</span></div>
+          <h3>AI voice agents</h3>
+          <p>A natural-sounding AI receptionist answers every call 24/7, qualifies the caller, answers questions and books straight into your calendar.</p>
+          <p class="card-meta"><span>Includes</span> inbound and outbound calls, missed-call text back</p>
+          <a class="card-link" href="services/ai-voice-agents.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card" tabindex="0" style="--i:1" data-cat="ai">
+          <div class="card-top"><svg class="card-icon"><use href="#i-chat"/></svg><span class="card-cat">AI agents</span></div>
+          <h3>AI chatbots</h3>
+          <p>Conversation AI on your website, WhatsApp, Instagram, Facebook and SMS that replies in seconds and turns enquiries into bookings.</p>
+          <p class="card-meta"><span>Includes</span> trained on your FAQs, live hand-off to staff</p>
+          <a class="card-link" href="services/ai-chatbots.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card" tabindex="0" style="--i:2" data-cat="ai">
+          <div class="card-top"><svg class="card-icon"><use href="#i-reviews"/></svg><span class="card-cat">AI agents</span></div>
+          <h3>Reputation management</h3>
+          <p>Automatic review requests after every job, AI replies to new reviews, and alerts before a bad one goes public.</p>
+          <p class="card-meta"><span>Includes</span> Google and Facebook reviews, review widgets</p>
+          <a class="card-link" href="services/reputation-management.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card" tabindex="0" style="--i:3" data-cat="growth">
+          <div class="card-top"><svg class="card-icon"><use href="#i-google"/></svg><span class="card-cat">Ads and funnels</span></div>
+          <h3>Google Ads management</h3>
+          <p>Search, Local Services and Performance Max campaigns built around buyers who are ready now, with every lead tracked back to the keyword.</p>
+          <p class="card-meta"><span>Includes</span> setup, copy, conversion tracking, monthly reporting</p>
+          <a class="card-link" href="services/google-ads.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card" tabindex="0" style="--i:4" data-cat="growth">
+          <div class="card-top"><svg class="card-icon"><use href="#i-meta"/></svg><span class="card-cat">Ads and funnels</span></div>
+          <h3>Meta ads management</h3>
+          <p>Facebook and Instagram campaigns with scroll-stopping creative and instant-form leads that land in your CRM and get a reply in under a minute.</p>
+          <p class="card-meta"><span>Includes</span> creative, audiences, retargeting, A/B testing</p>
+          <a class="card-link" href="services/meta-ads.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card" tabindex="0" style="--i:5" data-cat="growth">
+          <div class="card-top"><svg class="card-icon"><use href="#i-funnel"/></svg><span class="card-cat">Ads and funnels</span></div>
+          <h3>Funnels and websites</h3>
+          <p>Fast landing pages, booking funnels and websites built to convert ad traffic, with forms and calendars wired into your automations.</p>
+          <p class="card-meta"><span>Includes</span> copy, design, hosting, analytics</p>
+          <a class="card-link" href="services/funnels-websites.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card" tabindex="0" style="--i:6" data-cat="crm">
+          <div class="card-top"><svg class="card-icon"><use href="#i-crm"/></svg><span class="card-cat">CRM and automation</span></div>
+          <h3>GoHighLevel CRM setup</h3>
+          <p>Pipelines, calendars, workflows and dashboards configured for how you sell, so your team sees every lead and what to do next.</p>
+          <p class="card-meta"><span>Includes</span> migration, workflows, team training</p>
+          <a class="card-link" href="services/gohighlevel-crm.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card" tabindex="0" style="--i:7" data-cat="crm">
+          <div class="card-top"><svg class="card-icon"><use href="#i-followup"/></svg><span class="card-cat">CRM and automation</span></div>
+          <h3>Lead follow-up and reactivation</h3>
+          <p>Speed-to-lead SMS and email within seconds, nurture sequences that run for months, and campaigns that wake up your old customer list.</p>
+          <p class="card-meta"><span>Includes</span> SMS, email, WhatsApp, appointment reminders</p>
+          <a class="card-link" href="services/lead-follow-up.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card card-agency" tabindex="0" style="--i:8" data-cat="agency">
+          <div class="card-top"><svg class="card-icon"><use href="#i-whitelabel"/></svg><span class="card-cat">For agencies</span></div>
+          <h3>White-label fulfilment</h3>
+          <p>We deliver AI agents, GoHighLevel builds, funnels and ad campaigns under your brand. You keep the client and the margin; we do the work.</p>
+          <p class="card-meta"><span>Includes</span> snapshots, SaaS setup, client onboarding</p>
+          <a class="card-link" href="services/white-label-fulfilment.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card card-agency" tabindex="0" style="--i:9" data-cat="agency">
+          <div class="card-top"><svg class="card-icon"><use href="#i-ads"/></svg><span class="card-cat">For agencies</span></div>
+          <h3>White-label paid ads</h3>
+          <p>Google and Meta ad campaigns run under your agency's brand. We build, manage and report; you keep the client and the margin.</p>
+          <p class="card-meta"><span>Includes</span> Google Ads, Meta ads, creative, branded reports</p>
+          <a class="card-link" href="services/white-label-paid-ads.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="card card-agency" tabindex="0" style="--i:10" data-cat="agency">
+          <div class="card-top"><svg class="card-icon"><use href="#i-door"/></svg><span class="card-cat">For agencies</span></div>
+          <h3>Knock Knock AI white-label support</h3>
+          <p>As an official Knock Knock AI partner, we launch and support AI chat, call and video sales agents on your clients' websites, under your brand.</p>
+          <p class="card-meta"><span>Includes</span> setup, branding, CRM sync, ongoing support</p>
+          <a class="card-link" href="services/knock-knock-ai.html">Learn more <span aria-hidden="true">→</span></a>
+        </article>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button type="button" class="round-btn" id="car-prev" aria-label="Previous service"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <p class="carousel-count" id="car-count" aria-live="polite">01 / 11 · AI voice agents</p>
+          <button type="button" class="round-btn" id="car-next" aria-label="Next service"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE HELP -->
+  <section class="section" id="who" data-agent="audiences">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">Who we help</p>
+        <h2>Two kinds of clients, one system behind both.</h2>
+      </header>
+
+      <div class="audiences">
+        <article class="audience tilt">
+          <p class="plan-tag">Local businesses</p>
+          <h3>More booked customers from the leads you already pay for.</h3>
+          <p>Clinics, dentists, opticians, trades, salons, gyms, estate agents and restaurants. We run your ads, answer every call and message, follow up every lead and fill your diary.</p>
+          <ul class="ticks">
+            <li><svg><use href="#i-check"/></svg>Never miss a call or enquiry again</li>
+            <li><svg><use href="#i-check"/></svg>Leads replied to in under a minute, day or night</li>
+            <li><svg><use href="#i-check"/></svg>One dashboard from ad spend to booked revenue</li>
+          </ul>
+          <a class="btn" href="#contact" data-audience="Local business">I run a business</a>
+        </article>
+        <article class="audience audience-agency tilt">
+          <p class="plan-tag">Agencies</p>
+          <h3>Sell AI and automation without hiring a build team.</h3>
+          <p>Marketing agencies, consultants and GoHighLevel SaaS owners. We build and maintain everything under your brand so you can sign more clients without growing your payroll.</p>
+          <ul class="ticks">
+            <li><svg><use href="#i-check"/></svg>Your logo, your domain, your pricing</li>
+            <li><svg><use href="#i-check"/></svg>AI agents, snapshots and funnels delivered for you</li>
+            <li><svg><use href="#i-check"/></svg>Google and Meta ads run under your brand</li>
+            <li><svg><use href="#i-check"/></svg>Knock Knock AI set up and supported under your brand</li>
+            <li><svg><use href="#i-check"/></svg>We stay behind the scenes; you own the relationship</li>
+          </ul>
+          <a class="btn btn-ghost" href="#contact" data-audience="Agency">I run an agency</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KNOCK KNOCK AI -->
+  <section class="section" id="knock-knock" data-agent="kk" aria-labelledby="kk-title">
+    <div class="wrap">
+      <div class="kk">
+        <div class="kk-copy">
+          <p class="kk-badge"><svg><use href="#i-door"/></svg>Official Knock Knock AI partner · White-label support</p>
+          <h2 id="kk-title">Sell AI sales agents under your brand. We set them up and support them.</h2>
+          <p class="section-sub">Knock Knock AI is a white-label AI sales platform for agencies. It puts a widget on your clients' websites where visitors can chat, call or jump on a live video, and its AI agents qualify them and book them in. As an official white-label support partner, we launch it for your clients and look after it, so you can resell it without building a support team.</p>
+          <ul class="kk-features" aria-label="What your clients get">
+            <li>Chat agent</li>
+            <li>Call and live video agent</li>
+            <li>Auto Connect for high-intent visitors</li>
+            <li>Visitor intent score 0–100</li>
+            <li>Live takeover with transcripts</li>
+            <li>GoHighLevel and HubSpot sync</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="#contact" data-audience="Agency" data-service="Knock Knock AI white-label support">Talk to us about Knock Knock AI</a>
+          </div>
+        </div>
+
+        <!-- Decorative 3D mock of the Knock Knock widget on a client's site -->
+        <div class="kk-stage" aria-hidden="true">
+          <div class="kk-widget tilt">
+            <div class="kkw-browser">
+              <div class="kkw-bar"><i></i><i></i><i></i><span>yourclient.com</span></div>
+              <div class="kkw-page"><b></b><b></b><b></b><b class="short"></b><b class="block"></b></div>
+            </div>
+            <div class="kkw-pop">
+              <div class="kkw-agent"><span class="kkw-avatar">AI</span><p>Hi! Want a quick chat, a call, or a live video?</p></div>
+              <div class="kkw-actions"><span>Chat</span><span>Call</span><span class="hot">Video</span></div>
+            </div>
+            <div class="kkw-score">
+              <p>Intent score <strong>86</strong>/100</p>
+              <div class="kkw-meter"><span></span></div>
+              <p class="kkw-sync">Hot lead → GoHighLevel</p>
+            </div>
+            <div class="kkw-transcript">
+              <p class="kkw-label">● Live transcript</p>
+              <p>“Do you have anything this Thursday?”</p>
+              <p class="kkw-ai">“Yes, 2:30pm is free. Shall I book it?”</p>
+              <span class="kkw-take">Take over</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="kk-subhead">What we handle as your white-label support partner</h3>
+      <div class="kk-grid">
+        <article class="kk-card tilt">
+          <h3>Setup and branding</h3>
+          <p>Your logo, domain and colours on the platform and on every client's widget.</p>
+        </article>
+        <article class="kk-card tilt">
+          <h3>Client onboarding</h3>
+          <p>We train each client's agents on their website, offers and FAQs and get the widget live.</p>
+        </article>
+        <article class="kk-card tilt">
+          <h3>CRM connection</h3>
+          <p>Leads, conversations and intent scores flow into GoHighLevel or HubSpot with workflows ready to go.</p>
+        </article>
+        <article class="kk-card tilt">
+          <h3>Ongoing support</h3>
+          <p>Questions, fixes and updates handled behind the scenes, under your brand, for you and your clients.</p>
+        </article>
+        <article class="kk-card tilt">
+          <h3>Plan advice</h3>
+          <p>We help you choose the right plan and number of client accounts, and price your offer.</p>
+        </article>
+        <article class="kk-card tilt">
+          <h3>Sales and demo training</h3>
+          <p>Walkthroughs so your team can demo Knock Knock and sign clients with confidence.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process" data-agent="process">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>From first call to live system in about three weeks.</h2>
+      </header>
+
+      <ol class="pipeline">
+        <li class="stage">
+          <p class="stage-num">01 <span>Day 1</span></p>
+          <h3>Strategy call</h3>
+          <p>We look at where your leads come from, where they drop off and which automations will bring in the most revenue first.</p>
+          <p class="stage-out">Output: growth plan</p>
+        </li>
+        <li class="stage">
+          <p class="stage-num">02 <span>Weeks 1–2</span></p>
+          <h3>Build</h3>
+          <p>We set up your CRM, train your AI agents on your business, build funnels and prepare ad campaigns. You review everything before launch.</p>
+          <p class="stage-out">Output: system ready to test</p>
+        </li>
+        <li class="stage">
+          <p class="stage-num">03 <span>Week 3</span></p>
+          <h3>Launch</h3>
+          <p>Ads go live, agents start answering and follow-up sequences switch on. We watch every conversation closely in the first days.</p>
+          <p class="stage-out">Output: live campaigns and agents</p>
+        </li>
+        <li class="stage">
+          <p class="stage-num">04 <span>Ongoing</span></p>
+          <h3>Optimise</h3>
+          <p>We tune scripts, ads and workflows every week and report on leads, bookings and cost per customer.</p>
+          <p class="stage-out">Output: weekly report</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section" id="calculator" data-agent="calculator">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">Missed-lead calculator</p>
+        <h2>How much are slow replies costing you?</h2>
+        <p class="section-sub">Most businesses lose enquiries to missed calls and late follow-up. Move the sliders to see what those leads are worth.</p>
+      </header>
+
+      <form class="roi-panel" id="roi-form" aria-label="Missed-lead calculator">
+        <div class="roi-inputs">
+          <label class="field-range" for="roi-leads">
+            <span class="range-label">Leads per month <output id="roi-leads-out" for="roi-leads">120</output></span>
+            <input type="range" id="roi-leads" min="10" max="1000" step="10" value="120">
+          </label>
+          <label class="field-range" for="roi-missed">
+            <span class="range-label">Missed or answered late <output id="roi-missed-out" for="roi-missed">35%</output></span>
+            <input type="range" id="roi-missed" min="5" max="70" step="5" value="35">
+          </label>
+          <label class="field-range" for="roi-close">
+            <span class="range-label">Your close rate <output id="roi-close-out" for="roi-close">20%</output></span>
+            <input type="range" id="roi-close" min="5" max="60" step="5" value="20">
+          </label>
+          <label class="field-range" for="roi-value">
+            <span class="range-label">Average customer value <output id="roi-value-out" for="roi-value">£400</output></span>
+            <input type="range" id="roi-value" min="50" max="5000" step="50" value="400">
+          </label>
+        </div>
+
+        <dl class="roi-results" aria-live="polite">
+          <div>
+            <dt>Leads slipping away each month</dt>
+            <dd id="roi-lost-leads">42</dd>
+          </div>
+          <div>
+            <dt>Customers you could win back</dt>
+            <dd id="roi-customers">8 / month</dd>
+          </div>
+          <div>
+            <dt>Revenue recovered per year</dt>
+            <dd id="roi-revenue">£40,320</dd>
+          </div>
+          <p class="roi-note">Assumes recovered leads convert at your normal close rate. Your strategy call gives you real figures.</p>
+        </dl>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" data-agent="faq">
+    <div class="wrap faq">
+      <header class="section-head">
+        <p class="eyebrow">Questions</p>
+        <h2>What clients ask before they start.</h2>
+      </header>
+      <div class="faq-list">
+        <details>
+          <summary>Do I need GoHighLevel already?</summary>
+          <p>No. We can set up a new account for you, move your contacts and pipelines over from another CRM, or work inside the account you already have.</p>
+        </details>
+        <details>
+          <summary>Will the AI agents sound robotic?</summary>
+          <p>We train every agent on your services, prices and tone of voice, and test it on real calls and messages before it goes live. Anything it can't handle is passed to your team.</p>
+        </details>
+        <details>
+          <summary>Can you work under my agency's brand?</summary>
+          <p>Yes. White-label clients get everything delivered under their own logo and domain. We never contact your clients unless you ask us to.</p>
+        </details>
+        <details>
+          <summary>What is Knock Knock AI, and what do you do for it?</summary>
+          <p>Knock Knock AI is a white-label AI sales platform for agencies. It adds chat, call and live video agents to a website and scores each visitor's buying intent. We're an official Knock Knock AI white-label support partner: we set it up under your brand, onboard your clients, connect it to your CRM and support it day to day.</p>
+        </details>
+        <details>
+          <summary>Do you manage the ad spend too?</summary>
+          <p>We manage the campaigns. Ad spend is paid directly to Google or Meta from your own account, so you always keep control of the budget and the data.</p>
+        </details>
+        <details>
+          <summary>How soon will I see results?</summary>
+          <p>AI agents and follow-up automations work from the day they go live. Ad campaigns usually need two to four weeks of data to settle.</p>
+        </details>
+        <details>
+          <summary>Is my customer data safe?</summary>
+          <p>Your data stays in your own accounts. We only use the access each automation needs, and we're happy to sign an NDA before we start.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINALE: Omni, the website helper, waves above this -->
+  <section class="finale" data-agent="finale" aria-labelledby="finale-title">
+    <div class="wrap finale-inner">
+      <p class="eyebrow">Omni AI Builders</p>
+      <h2 id="finale-title">Your AI workforce, live in three weeks.</h2>
+      <p class="section-sub">Voice agents, chatbots, ads and follow-up, all working together in one system.</p>
+      <div class="cta-row"><a class="btn" href="#contact">Book a free strategy call</a></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact" data-agent="contact">
+    <div class="wrap contact">
+      <div class="contact-copy">
+        <p class="eyebrow">Free strategy call</p>
+        <h2>Tell us what you want to automate.</h2>
+        <p class="section-sub">A 30-minute call. You leave with a clear plan for the automations that will bring in the most revenue first, whether or not you work with us.</p>
+        <p class="contact-direct">Prefer email? <span class="selectable" id="contact-email">hello@omniaibuilders.com</span> <button type="button" class="copy-btn" id="copy-email">Copy</button></p>
+      </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-phone">Phone</label>
+          <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="cf-type">I run a</label>
+          <select id="cf-type" name="type">
+            <option>Local business</option>
+            <option>Agency</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field field-wide">
+          <label for="cf-service">Most interested in</label>
+          <select id="cf-service" name="service">
+            <option>Not sure yet, help me decide</option>
+            <option>AI voice agents</option>
+            <option>AI chatbots</option>
+            <option>Reputation management</option>
+            <option>Google Ads management</option>
+            <option>Meta ads management</option>
+            <option>Funnels and websites</option>
+            <option>GoHighLevel CRM setup</option>
+            <option>Lead follow-up and reactivation</option>
+            <option>White-label fulfilment</option>
+            <option>White-label paid ads</option>
+            <option>Knock Knock AI white-label support</option>
+          </select>
+        </div>
+        <div class="field field-wide">
+          <label for="cf-task">What would you like to automate?</label>
+          <textarea id="cf-task" name="task" rows="4" placeholder="e.g. We miss calls when the front desk is busy and our Facebook leads go cold."></textarea>
+        </div>
+        <div class="field-wide form-foot">
+          <button class="btn" type="submit">Book my strategy call</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span>Omni <span class="brand-sub">AI Builders</span></span></a>
+    <p>Automate whatever you want.</p>
+    <p class="footer-legal">© <span id="year">2026</span> Omni AI Builders. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/js/services-data.js"></script>
+<script src="assets/js/scene.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/chat.js"></script>
+</body>
+</html>
