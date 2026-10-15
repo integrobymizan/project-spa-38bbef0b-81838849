@@ -1,19 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
+// The Omni AI Builders 3D website is a static site in public/omni/.
+// Send visitors from the home address straight to it.
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [{ title: "My App" }, { name: "description", content: "A new project." }],
-  }),
-  component: Index,
+  beforeLoad: () => {
+    throw redirect({ href: "/omni/index.html", statusCode: 302 });
+  },
 });
-
-function Index() {
-  return (
-    <main className="min-h-screen flex items-center justify-center bg-background text-foreground">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight">Hello</h1>
-        <p className="mt-3 text-muted-foreground">A blank slate — ready to build.</p>
-      </div>
-    </main>
-  );
-}
